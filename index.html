@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MoneyTrack</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#12302a">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <h1>MoneyTrack</h1>
+      <label class="month">
+        <span class="sr-only">Bulan</span>
+        <input type="month" id="filterBulan">
+      </label>
+    </header>
+
+    <section class="balance" aria-labelledby="saldoLabel">
+      <p id="saldoLabel" class="balance-label">Saldo bulan ini</p>
+      <p id="saldo" class="balance-value">Rp0</p>
+      <div class="split" role="img" aria-label="Perbandingan pemasukan dan pengeluaran">
+        <div id="barMasuk" class="split-in"></div>
+        <div id="barKeluar" class="split-out"></div>
+      </div>
+      <dl class="totals">
+        <div>
+          <dt>Pemasukan</dt>
+          <dd id="totalMasuk" class="in">Rp0</dd>
+        </div>
+        <div>
+          <dt>Pengeluaran</dt>
+          <dd id="totalKeluar" class="out">Rp0</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="panel" aria-labelledby="tambahJudul">
+      <h2 id="tambahJudul">Catat transaksi</h2>
+      <form id="form" autocomplete="off">
+        <div class="toggle" role="radiogroup" aria-label="Jenis transaksi">
+          <input type="radio" name="jenis" id="jKeluar" value="keluar" checked>
+          <label for="jKeluar">Pengeluaran</label>
+          <input type="radio" name="jenis" id="jMasuk" value="masuk">
+          <label for="jMasuk">Pemasukan</label>
+        </div>
+
+        <div class="row">
+          <label class="field">
+            <span>Nominal (Rp)</span>
+            <input type="number" id="nominal" min="1" step="1" inputmode="numeric" placeholder="25000" required>
+          </label>
+          <label class="field">
+            <span>Tanggal</span>
+            <input type="date" id="tanggal" required>
+          </label>
+        </div>
+
+        <div class="row">
+          <label class="field">
+            <span>Kategori</span>
+            <select id="kategori" required></select>
+          </label>
+          <label class="field">
+            <span>Keterangan</span>
+            <input type="text" id="keterangan" maxlength="60" placeholder="Makan siang">
+          </label>
+        </div>
+
+        <button type="submit" class="btn">Simpan transaksi</button>
+      </form>
+    </section>
+
+    <section class="panel" aria-labelledby="kategoriJudul">
+      <h2 id="kategoriJudul">Pengeluaran per kategori</h2>
+      <ul id="kategoriList" class="cats"></ul>
+    </section>
+
+    <section class="panel" aria-labelledby="riwayatJudul">
+      <h2 id="riwayatJudul">Riwayat</h2>
+      <ul id="riwayat" class="history"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#12302a">
+  <link rel="apple-touch-icon" href="icon-192.png">
